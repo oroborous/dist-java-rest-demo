@@ -3,9 +3,7 @@ package edu.wctc.distjavarestdemo.controller;
 import edu.wctc.distjavarestdemo.entity.Book;
 import edu.wctc.distjavarestdemo.repo.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,5 +25,11 @@ public class BookController {
         bookRepo.findAll().forEach(list::add);
 
         return list;
+    }
+
+    @PostMapping
+    public Book createBook(@RequestBody Book newBook) {
+        Book savedBook = bookRepo.save(newBook);
+        return savedBook;
     }
 }
