@@ -1,7 +1,9 @@
 package edu.wctc.distjavarestdemo.controller;
 
+import edu.wctc.distjavarestdemo.dto.SimpleBook;
 import edu.wctc.distjavarestdemo.entity.Book;
 import edu.wctc.distjavarestdemo.repo.BookRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +20,22 @@ public class BookController {
         this.bookRepo = ar;
     }
 
-    @GetMapping
-    public List<Book> getBooks() {
-        List<Book> list = new ArrayList<>();
+    @Autowired
+    private ModelMapper modelMapper;
 
-        bookRepo.findAll().forEach(list::add);
+    private SimpleBook convertToDto(Book book) {
+//        SimpleBook simpleBook = new SimpleBook();
+//        simpleBook.setDescription(book.getDescription());
+//        simpleBook.setAuthorName(book.getAuthor().getName());
+//        simpleBook.setIsbn(book.getIsbn());
+        return modelMapper.map(book, SimpleBook.class);
+    }
+
+    @GetMapping
+    public List<SimpleBook> getBooks() {
+        List<SimpleBook> list = new ArrayList<>();
+
+        bookRepo.findAll().forEach(book -> list.add(convertToDto(book)));
 
         return list;
     }

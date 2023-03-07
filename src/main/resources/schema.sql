@@ -31,10 +31,18 @@ create table book (
     isbn varchar(20),
     title varchar(500),
     subtitle varchar(500),
-    author varchar(500),
+    --author varchar(500),
+    author_id int,
     publication_date timestamp,
     publisher varchar(250),
     page_count int,
     description varchar(4000),
     website varchar(4000)
+);
+
+create table author (
+    author_id int primary key,
+    name varchar(500),
+    books_on_contract int,
+    advance_per_book float
 );

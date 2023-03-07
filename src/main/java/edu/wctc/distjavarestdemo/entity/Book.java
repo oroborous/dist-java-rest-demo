@@ -1,9 +1,9 @@
 package edu.wctc.distjavarestdemo.entity;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -18,7 +18,10 @@ public class Book {
     private String isbn;
     private String title;
     private String subtitle;
-    private String author;
+//    private String author;
+    @ManyToOne
+    @JoinColumn(name="author_id")
+    private Author author;
     @Column(name="publication_date")
     private LocalDate publicationDate;
     private String publisher;

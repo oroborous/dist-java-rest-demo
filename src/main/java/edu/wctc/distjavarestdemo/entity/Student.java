@@ -1,10 +1,9 @@
 package edu.wctc.distjavarestdemo.entity;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 

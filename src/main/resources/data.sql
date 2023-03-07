@@ -55,14 +55,30 @@ values (2, 'English');
 insert into student_language(student_id, language)
 values (2, 'Gaelic');
 
-insert into book (isbn, title, subtitle, author, publication_date, publisher, page_count, description, website)
-values ('9781593275846', 'Eloquent JavaScript, Second Edition', 'A Modern Introduction to PrograMMing', 'Marijn Haverbeke',
+-- insert into book (isbn, title, subtitle, author, publication_date, publisher, page_count, description, website)
+-- values ('9781593275846', 'Eloquent JavaScript, Second Edition', 'A Modern Introduction to Programming', 'Marijn Haverbeke',
+--         PARSEDATETIME('2014 12 14', 'yyyy MM dd'), 'No Starch Press', 472,
+--         'JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.',
+--         'http://eloquentjavascript.net/');
+--
+-- insert into book (isbn, title, author, publication_date, publisher, page_count, description, website)
+-- values ('9781617298813', 'Spring Boot in Practice', 'Somnath Musib',
+--         PARSEDATETIME('2022 03 30', 'yyyy MM dd'), 'Manning', 480,
+--         'Go beyond the basics with Spring Boot! This practical guide presents dozens of relevant scenarios in a convenient problem-solution-discussion format.',
+--         'https://www.manning.com/books/spring-boot-in-practice');
+
+insert into book (isbn, title, subtitle, author_id, publication_date, publisher, page_count, description, website)
+values ('9781593275846', 'Eloquent JavaScript, Second Edition', 'A Modern Introduction to Programming', 1,
         PARSEDATETIME('2014 12 14', 'yyyy MM dd'), 'No Starch Press', 472,
         'JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.',
         'http://eloquentjavascript.net/');
 
-insert into book (isbn, title, author, publication_date, publisher, page_count, description, website)
-values ('9781617298813', 'Spring Boot in Practice', 'Somnath Musib',
+insert into book (isbn, title, author_id, publication_date, publisher, page_count, description, website)
+values ('9781617298813', 'Spring Boot in Practice', 2,
         PARSEDATETIME('2022 03 30', 'yyyy MM dd'), 'Manning', 480,
         'Go beyond the basics with Spring Boot! This practical guide presents dozens of relevant scenarios in a convenient problem-solution-discussion format.',
         'https://www.manning.com/books/spring-boot-in-practice');
+
+insert into author (author_id, name, books_on_contract, advance_per_book) values (1, 'Marijn Haverbeke', 3, 450000);
+
+insert into author (author_id, name, books_on_contract, advance_per_book) values (2, 'Somnath Musib', 1, 250000);
