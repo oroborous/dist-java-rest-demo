@@ -16,17 +16,17 @@ values (5, '1 E Jackson Blvd', 'Chicago', 'IL', '60604');
 insert into address (address_id, street, city, state, zip)
 values (6, '2625 W Baseline Rd', 'Tempe', 'AZ', '85283-1056');
 
-insert into student (student_id, first_name, last_name, email, gpa, address_id, date_enrolled)
-values (1, 'Stacy', 'Read', 'sread@wctc.edu', 3.8, 1, PARSEDATETIME('13 Sep 2015', 'dd MMM yyyy') );
+insert into student (first_name, last_name, email, gpa, address_id, date_enrolled)
+values ('Stacy', 'Read', 'sread@wctc.edu', 3.8, 1, PARSEDATETIME('13 Sep 2015', 'dd MMM yyyy') );
 
-insert into student (student_id, first_name, last_name, email, gpa, address_id, date_enrolled)
-values (2, 'Matt', 'Green', 'mgreen@marquette.edu', 3.8, 2, PARSEDATETIME('07 Jul 2021', 'dd MMM yyyy') );
+insert into student (first_name, last_name, email, gpa, address_id, date_enrolled)
+values ('Matt', 'Green', 'mgreen@marquette.edu', 3.8, 2, PARSEDATETIME('07 Jul 2021', 'dd MMM yyyy') );
 
-insert into student (student_id, first_name, last_name, email, gpa, address_id, date_enrolled)
-values (3, 'Hello', 'Kitty', 'hkitty@uww.edu', 3.9, 4, PARSEDATETIME('27 Jan 2019', 'dd MMM yyyy') );
+insert into student (first_name, last_name, email, gpa, address_id, date_enrolled)
+values ('Hello', 'Kitty', 'hkitty@uww.edu', 3.9, 4, PARSEDATETIME('27 Jan 2019', 'dd MMM yyyy') );
 
-insert into student (student_id, first_name, last_name, email, gpa, address_id, date_enrolled)
-values (4, 'Badtz', 'Maru', 'bmaru@uat.edu', 3.8, 1, PARSEDATETIME('05 May 2009', 'dd MMM yyyy') );
+insert into student (first_name, last_name, email, gpa, address_id, date_enrolled)
+values ('Badtz', 'Maru', 'bmaru@uat.edu', 3.8, 1, PARSEDATETIME('05 May 2009', 'dd MMM yyyy') );
 
 insert into student_language(student_id, language)
 values (3, 'English');

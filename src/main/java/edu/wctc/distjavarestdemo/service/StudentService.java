@@ -9,7 +9,6 @@ import edu.wctc.distjavarestdemo.entity.Student;
 import edu.wctc.distjavarestdemo.exception.ResourceNotFoundException;
 import edu.wctc.distjavarestdemo.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
