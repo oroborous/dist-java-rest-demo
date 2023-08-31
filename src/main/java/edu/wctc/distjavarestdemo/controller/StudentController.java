@@ -36,14 +36,10 @@ public class StudentController {
     }
 
     @DeleteMapping("/{studentId}")
-    public String deleteStudent(@PathVariable String studentId) {
+    public String deleteStudent(@PathVariable int studentId) {
         try {
-            int id = Integer.parseInt(studentId);
-            studentService.delete(id);
+            studentService.delete(studentId);
             return "Student deleted: ID " + studentId;
-        } catch (NumberFormatException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-                    "Student ID must be a number", e);
         } catch (ResourceNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     e.getMessage(), e);
@@ -51,14 +47,10 @@ public class StudentController {
     }
 
     @PatchMapping("/{studentId}")
-    public Student patchStudent(@PathVariable String studentId,
+    public Student patchStudent(@PathVariable int studentId,
                                 @RequestBody JsonPatch patch) {
         try {
-            int id = Integer.parseInt(studentId);
-            return studentService.patch(id, patch);
-        } catch (NumberFormatException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-                    "Student ID must be a number", e);
+            return studentService.patch(studentId, patch);
         } catch (ResourceNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     e.getMessage(), e);
@@ -79,13 +71,9 @@ public class StudentController {
     }
 
     @GetMapping("/{studentId}")
-    public Student getStudent(@PathVariable String studentId) {
+    public Student getStudent(@PathVariable int studentId) {
         try {
-            int id = Integer.parseInt(studentId);
-            return studentService.getStudent(id);
-        } catch (NumberFormatException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-                    "Student ID must be a number", e);
+            return studentService.getStudent(studentId);
         } catch (ResourceNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     e.getMessage(), e);
