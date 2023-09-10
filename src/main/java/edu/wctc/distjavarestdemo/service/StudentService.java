@@ -16,14 +16,17 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    private StudentRepository studentRepo;
-    private ObjectMapper objectMapper;
+    private final StudentRepository studentRepo;
+    private final ObjectMapper objectMapper;
+    private final AddressService addressService;
 
     @Autowired
     public StudentService(StudentRepository sr,
-                          ObjectMapper om) {
+                          ObjectMapper om,
+                          AddressService addressService) {
         this.studentRepo = sr;
         this.objectMapper = om;
+        this.addressService = addressService;
     }
 
     public Student patch(int id, JsonPatch patch) throws ResourceNotFoundException,
@@ -47,13 +50,14 @@ public class StudentService {
     public Student update(Student student)
             throws ResourceNotFoundException {
         if (studentRepo.existsById(student.getId())) {
-            return studentRepo.save(student);
+            return save(student);
         } else {
             throw new ResourceNotFoundException("Student", "id", student.getId());
         }
     }
 
     public Student save(Student student) {
+        addressService.save(student.getAddress());
         return studentRepo.save(student);
     }
 

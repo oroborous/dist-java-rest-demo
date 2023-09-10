@@ -1,6 +1,7 @@
 package edu.wctc.distjavarestdemo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
