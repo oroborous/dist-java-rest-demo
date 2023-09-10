@@ -23,7 +23,7 @@ public class Student {
     private String email;
     private Double gpa;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="address_id")
     private Address address;
 

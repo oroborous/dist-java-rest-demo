@@ -16,6 +16,8 @@ values (5, '1 E Jackson Blvd', 'Chicago', 'IL', '60604');
 insert into address (address_id, street, city, state, zip)
 values (6, '2625 W Baseline Rd', 'Tempe', 'AZ', '85283-1056');
 
+
+
 insert into student (first_name, last_name, email, gpa, address_id, date_enrolled)
 values ('Stacy', 'Read', 'sread@wctc.edu', 3.8, 1, PARSEDATETIME('13 Sep 2015', 'dd MMM yyyy') );
 
